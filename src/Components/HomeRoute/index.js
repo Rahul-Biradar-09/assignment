@@ -109,15 +109,14 @@ class HomeRoute extends Component {
     this.setState({apiStatus: apiStatusConstants.loading}, this.fetchVideosApi)
   }
 
-  onCallLoadingView = () => {
-    return (
+  onCallLoadingView = () => (
       <VideosContainer outline>
         <div className="loader-container" data-testid="loader">
           <Loader type="ThreeDots" color="#616e7c" height="50" width="50" />
         </div>
       </VideosContainer>
     )
-  }
+
 
   onCallSuccessView = () => {
     const {videosList} = this.state
@@ -141,12 +140,12 @@ class HomeRoute extends Component {
                           src={eachItem.thumbnailUrl}
                           alt="video thumbnail"
                           outline
-                        ></ThumbnailImage>
+                        />
                         <VideoBottomContainer>
                           <ThumbnailImage
                             src={eachItem.channel.profileImageUrl}
                             alt="channel logo"
-                          ></ThumbnailImage>
+                          />
                           <VideoTextContainer>
                             <VideoHead
                               color={backgroundColor ? 'true' : undefined}
@@ -177,7 +176,7 @@ class HomeRoute extends Component {
                   <FailureImageElement
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
                     alt="no videos"
-                  ></FailureImageElement>
+                  />
                   <FailureHead bgColor={backgroundColor}>
                     No Search Results Found
                   </FailureHead>
@@ -199,8 +198,7 @@ class HomeRoute extends Component {
     )
   }
 
-  onCallFailureView = () => {
-    return (
+  onCallFailureView = () => (
       <DisplayContext.Consumer>
         {value => {
           const {backgroundColor} = value
@@ -213,7 +211,7 @@ class HomeRoute extends Component {
                     : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
                 }
                 alt="failure view"
-              ></FailureImageElement>
+              />
               <FailureHead bgColor={backgroundColor}>
                 Oops! Something Went Wrong
               </FailureHead>
@@ -229,7 +227,6 @@ class HomeRoute extends Component {
         }}
       </DisplayContext.Consumer>
     )
-  }
 
   onsearchEventListener = event => {
     this.setState({searchItem: event.target.value})
@@ -273,7 +270,7 @@ class HomeRoute extends Component {
                         <ImageElement
                           src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
                           alt="nxt watch logo"
-                        ></ImageElement>
+                        />
                         <CancelButton
                           type="button"
                           data-testid="close"
@@ -297,7 +294,7 @@ class HomeRoute extends Component {
                         onChange={this.onsearchEventListener}
                         placeholder="Search"
                         bgColor={backgroundColor}
-                      ></InputElement>
+                      />
                       <IconContainer
                         type="button"
                         data-testid="searchButton"

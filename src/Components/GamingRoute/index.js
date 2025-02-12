@@ -95,15 +95,13 @@ class GamingRoute extends Component {
     )
   }
 
-  onCallLoadingView = () => {
-    return (
-      <VideosGamingContainer outline>
-        <div className="loader-container" data-testid="loader">
-          <Loader type="ThreeDots" color="#616e7c" height="50" width="50" />
-        </div>
-      </VideosGamingContainer>
-    )
-  }
+  onCallLoadingView = () => (
+    <VideosGamingContainer outline>
+      <div className="loader-container" data-testid="loader">
+        <Loader type="ThreeDots" color="#616e7c" height="50" width="50" />
+      </div>
+    </VideosGamingContainer>
+  )
 
   onCallSuccessView = () => {
     const {gamingList} = this.state
@@ -120,7 +118,7 @@ class GamingRoute extends Component {
                     <ThumbnailImage
                       src={eachItem.thumbnailUrl}
                       alt="video thumbnail"
-                    ></ThumbnailImage>
+                    />
                     <VideoTextContainer>
                       <VideoHead bgColor={backgroundColor}>
                         {eachItem.title}
@@ -139,37 +137,35 @@ class GamingRoute extends Component {
     )
   }
 
-  onCallFailureView = () => {
-    return (
-      <DisplayContext.Consumer>
-        {value => {
-          const {backgroundColor} = value
-          return (
-            <VideosGamingContainer outline>
-              <FailureImageElement
-                src={
-                  backgroundColor
-                    ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
-                    : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
-                }
-                alt="failure view"
-              ></FailureImageElement>
-              <FailureHead bgColor={backgroundColor}>
-                Oops! Something Went Wrong
-              </FailureHead>
-              <FailurePara>
-                We are having some trouble to complete your request. Please try
-                again.
-              </FailurePara>
-              <FailureButton type="button" onClick={this.onRetryButtonEvent}>
-                Retry
-              </FailureButton>
-            </VideosGamingContainer>
-          )
-        }}
-      </DisplayContext.Consumer>
-    )
-  }
+  onCallFailureView = () => (
+    <DisplayContext.Consumer>
+      {value => {
+        const {backgroundColor} = value
+        return (
+          <VideosGamingContainer outline>
+            <FailureImageElement
+              src={
+                backgroundColor
+                  ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
+                  : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
+              }
+              alt="failure view"
+            />
+            <FailureHead bgColor={backgroundColor}>
+              Oops! Something Went Wrong
+            </FailureHead>
+            <FailurePara>
+              We are having some trouble to complete your request. Please try
+              again.
+            </FailurePara>
+            <FailureButton type="button" onClick={this.onRetryButtonEvent}>
+              Retry
+            </FailureButton>
+          </VideosGamingContainer>
+        )
+      }}
+    </DisplayContext.Consumer>
+  )
 
   apiContantsEvents = () => {
     const {apiStatus} = this.state
@@ -203,7 +199,7 @@ class GamingRoute extends Component {
                         <ImageElement
                           src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
                           alt="nxt watch logo"
-                        ></ImageElement>
+                        />
                         <CancelButton
                           type="button"
                           data-testid="close"

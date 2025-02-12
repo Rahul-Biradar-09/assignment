@@ -104,15 +104,13 @@ class TrendingRoute extends Component {
     )
   }
 
-  onCallLoadingView = () => {
-    return (
+  onCallLoadingView = () => (
       <VideosTrendingContainer outline>
         <div className="loader-container" data-testid="loader">
           <Loader type="ThreeDots" color="#616e7c" height="50" width="50" />
         </div>
       </VideosTrendingContainer>
     )
-  }
 
   onCallSuccessView = () => {
     const {trendingList} = this.state
@@ -128,7 +126,7 @@ class TrendingRoute extends Component {
                     <ThumbnailImage
                       src={eachItem.thumbnailUrl}
                       alt="video thumbnail"
-                    ></ThumbnailImage>
+                    />
                     <VideoTextContainer>
                       <VideoHead bgColor={backgroundColor}>
                         {eachItem.title}
@@ -154,8 +152,7 @@ class TrendingRoute extends Component {
     )
   }
 
-  onCallFailureView = () => {
-    return (
+  onCallFailureView = () =>  (
       <DisplayContext.Consumer>
         {value => {
           const {backgroundColor} = value
@@ -168,7 +165,7 @@ class TrendingRoute extends Component {
                     : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
                 }
                 alt="failure view"
-              ></FailureImageElement>
+              />
               <FailureHead bgColor={backgroundColor}>
                 Oops! Something Went Wrong
               </FailureHead>
@@ -184,7 +181,7 @@ class TrendingRoute extends Component {
         }}
       </DisplayContext.Consumer>
     )
-  }
+  
 
   apiContantsEvents = () => {
     const {apiStatus} = this.state
@@ -218,7 +215,7 @@ class TrendingRoute extends Component {
                         <ImageElement
                           src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
                           alt="nxt watch logo"
-                        ></ImageElement>
+                        />
                         <CancelButton
                           type="button"
                           data-testid="close"

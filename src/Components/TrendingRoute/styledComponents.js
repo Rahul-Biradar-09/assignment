@@ -122,7 +122,7 @@ width: 90%;
 display: flex;
 flex-direction: column;
 justify-content: ${props => (props.outline ? 'center' : 'flex-start')};
-align-items: flex-start;
+align-items:  ${props => (props.outline ? 'center' : 'flex-start')};
 margin-top: 22px;
 overflow-y: auto;
 list-style-type: none;

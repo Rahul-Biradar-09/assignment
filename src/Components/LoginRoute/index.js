@@ -83,7 +83,7 @@ class LoginRoute extends Component {
                       : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
                   }
                   alt="website logo"
-                ></ImageElement>
+                />
                 <FormContainer onSubmit={this.formEventListener}>
                   <LableElement htmlFor="label-one" bgColor={backgroundColor}>
                     USERNAME
@@ -96,7 +96,7 @@ class LoginRoute extends Component {
                     value={username}
                     outline
                     bgColor={backgroundColor}
-                  ></InputElement>
+                  />
                   <LableElement htmlFor="label-two" bgColor={backgroundColor}>
                     PASSWORD
                   </LableElement>
@@ -107,13 +107,13 @@ class LoginRoute extends Component {
                     onChange={this.inputEventPassword}
                     value={password}
                     bgColor={backgroundColor}
-                  ></InputElement>
+                  />
                   <CheckboxContainer>
                     <InputCheckboxElement
                       type="checkbox"
                       id="checkbox-one"
                       onChange={this.inputEventCheckbox}
-                    ></InputCheckboxElement>
+                    />
                     <LableCheckboxElement
                       htmlFor="checkbox-one"
                       bgColor={backgroundColor}

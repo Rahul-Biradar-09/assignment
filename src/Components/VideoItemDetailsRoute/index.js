@@ -126,15 +126,13 @@ class VideoItemDetailsRoute extends Component {
     this.setState({apiStatus: apiStatusConstants.loading})
   }
 
-  onCallLoadingView = () => {
-    return (
-      <VideoDetailsContainer outline>
-        <div className="loader-container" data-testid="loader">
-          <Loader type="ThreeDots" color="#616e7c" height="50" width="50" />
-        </div>
-      </VideoDetailsContainer>
-    )
-  }
+  onCallLoadingView = () => (
+    <VideoDetailsContainer outline>
+      <div className="loader-container" data-testid="loader">
+        <Loader type="ThreeDots" color="#616e7c" height="50" width="50" />
+      </div>
+    </VideoDetailsContainer>
+  )
 
   onLikedEvent = () => {
     this.setState(prevState => ({
@@ -156,8 +154,8 @@ class VideoItemDetailsRoute extends Component {
         return {...eachItem, isSaved: !eachItem.isSaved}
       }
       return eachItem
-    })})) */ 
-  // I tried to update the key of the videoItem but got error called :- (videosItemDetails.map not a function)
+    })})) */
+    // I tried to update the key of the videoItem but got error called :- (videosItemDetails.map not a function)
     this.setState(prevState => ({isSaved: !prevState.isSaved}))
   }
 
@@ -233,10 +231,7 @@ class VideoItemDetailsRoute extends Component {
               </VideoItemDetailsContainer>
               <Line></Line>
               <DescriptionContainer>
-                <ItemImage
-                  src={channel.profileImageUrl}
-                  alt="channel logo"
-                ></ItemImage>
+                <ItemImage src={channel.profileImageUrl} alt="channel logo" />
                 <ItemTextContainer>
                   <BottomHead bgColor={backgroundColor}>
                     {channel.name}
@@ -254,37 +249,35 @@ class VideoItemDetailsRoute extends Component {
     )
   }
 
-  onCallFailureView = () => {
-    return (
-      <DisplayContext.Consumer>
-        {value => {
-          const {backgroundColor} = value
-          return (
-            <VideoDetailsContainer outline>
-              <FailureImageElement
-                src={
-                  backgroundColor
-                    ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
-                    : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
-                }
-                alt="failure view"
-              ></FailureImageElement>
-              <FailureHead bgColor={backgroundColor}>
-                Oops! Something Went Wrong
-              </FailureHead>
-              <FailurePara>
-                We are having some trouble to complete your request. Please try
-                again.
-              </FailurePara>
-              <FailureButton type="button" onClick={this.onRetryButtonEvent}>
-                Retry
-              </FailureButton>
-            </VideoDetailsContainer>
-          )
-        }}
-      </DisplayContext.Consumer>
-    )
-  }
+  onCallFailureView = () => (
+    <DisplayContext.Consumer>
+      {value => {
+        const {backgroundColor} = value
+        return (
+          <VideoDetailsContainer outline>
+            <FailureImageElement
+              src={
+                backgroundColor
+                  ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
+                  : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
+              }
+              alt="failure view"
+            />
+            <FailureHead bgColor={backgroundColor}>
+              Oops! Something Went Wrong
+            </FailureHead>
+            <FailurePara>
+              We are having some trouble to complete your request. Please try
+              again.
+            </FailurePara>
+            <FailureButton type="button" onClick={this.onRetryButtonEvent}>
+              Retry
+            </FailureButton>
+          </VideoDetailsContainer>
+        )
+      }}
+    </DisplayContext.Consumer>
+  )
 
   apiContantsEvents = () => {
     const {apiStatus} = this.state
@@ -317,7 +310,7 @@ class VideoItemDetailsRoute extends Component {
                         <ImageElement
                           src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
                           alt="nxt watch logo"
-                        ></ImageElement>
+                        />
                         <CancelButton
                           type="button"
                           data-testid="close"

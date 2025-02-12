@@ -57,14 +57,14 @@ const sidePanelNames = [
 ]
 
 class SidePanelRoute extends Component {
-  state = {route_id: ''}
+  state = {routeId: ''}
 
   onChangeRoute = id => {
-    this.setState({route_id: id})
+    this.setState({routeId: id})
   }
 
   render() {
-    const {route_id} = this.state
+    const {routeId} = this.state
     return (
       <DisplayContext.Consumer>
         {value => {
@@ -80,10 +80,10 @@ class SidePanelRoute extends Component {
                     {backgroundColor ? (
                       <ElementsContainer1
                         key={eachItem.id}
-                        bgColor={route_id === eachItem.id}
+                        bgColor={routeId === eachItem.id}
                       >
                         <ImageContainer1
-                          color={route_id === eachItem.id ? 'true' : undefined}
+                          color={routeId === eachItem.id ? 'true' : undefined}
                         >
                           {eachItem.icon}
                         </ImageContainer1>
@@ -94,10 +94,10 @@ class SidePanelRoute extends Component {
                     ) : (
                       <ElementsContainer
                         key={eachItem.id}
-                        bgColor={route_id === eachItem.id}
+                        bgColor={routeId === eachItem.id}
                       >
                         <ImageContainer
-                          color={route_id === eachItem.id ? 'true' : undefined}
+                          color={routeId === eachItem.id ? 'true' : undefined}
                         >
                           {eachItem.icon}
                         </ImageContainer>
@@ -115,15 +115,15 @@ class SidePanelRoute extends Component {
                   <ImageElement
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"
                     alt="facebook logo"
-                  ></ImageElement>
+                  />
                   <ImageElement
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-twitter-logo-img.png"
                     alt="twitter logo"
-                  ></ImageElement>
+                  />
                   <ImageElement
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png"
                     alt="linked in logo"
-                  ></ImageElement>
+                  />
                 </ImageBottomContainer>
                 <ParaBottom bgColor={backgroundColor}>
                   Enjoy! Now to see your channels and recommendations!

@@ -12,8 +12,7 @@ import {
   ParaElement,
 } from './styledComponents'
 
-const NotFoundRoute = () => {
-  return (
+const NotFoundRoute = () => (
     <DisplayContext.Consumer>
       {value => {
         const {backgroundColor} = value
@@ -30,7 +29,7 @@ const NotFoundRoute = () => {
                       : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-not-found-light-theme-img.png'
                   }
                   alt="not found"
-                ></ImageElement>
+                />
                 <HeadElement bgColor={backgroundColor}>
                   Page Not Found
                 </HeadElement>
@@ -44,6 +43,6 @@ const NotFoundRoute = () => {
       }}
     </DisplayContext.Consumer>
   )
-}
+
 
 export default NotFoundRoute

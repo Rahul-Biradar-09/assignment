@@ -51,7 +51,7 @@ const HeaderRoute = props => {
                       : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
                   }
                   alt="website logo"
-                ></ImageElement>
+                />
               </Link>
             </ImageButton>
             <ElementsContainer>
@@ -65,7 +65,7 @@ const HeaderRoute = props => {
               <ProfileImageElement
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
                 alt="profile"
-              ></ProfileImageElement>
+              />
               <PopupContainer>
                 <Popup
                   modal

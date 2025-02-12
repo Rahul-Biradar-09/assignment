@@ -57,18 +57,15 @@ class SavedVideosRoute extends Component {
     this.setState({apiStatus: apiStatusConstants.success})
   }
 
-  onCallLoadingView = () => {
-    return (
+  onCallLoadingView = () => (
       <VideosSavedContainer outline>
         <div className="loader-container" data-testid="loader">
           <Loader type="ThreeDots" color="#616e7c" height="50" width="50" />
         </div>
       </VideosSavedContainer>
     )
-  }
 
-  onCallSuccessView = () => {
-    return (
+  onCallSuccessView = () => (
       <DisplayContext.Consumer>
         {value => {
           const {backgroundColor, videoItems} = value
@@ -80,7 +77,7 @@ class SavedVideosRoute extends Component {
                     <ThumbnailImage
                       src={eachItem.thumbnailUrl}
                       alt="video thumbnail"
-                    ></ThumbnailImage>
+                    />
                     <VideoTextContainer>
                       <VideoHead bgColor={backgroundColor}>
                         {eachItem.title}
@@ -104,10 +101,9 @@ class SavedVideosRoute extends Component {
         }}
       </DisplayContext.Consumer>
     )
-  }
 
-  onCallFailureView = () => {
-    return (
+
+  onCallFailureView = () => (
       <DisplayContext.Consumer>
         {value => {
           const {backgroundColor} = value
@@ -117,7 +113,7 @@ class SavedVideosRoute extends Component {
               <FailureImageElement
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png"
                 alt="no saved videos"
-              ></FailureImageElement>
+              />
               <FailureHead bgColor={backgroundColor}>
                 No saved videos found
               </FailureHead>
@@ -129,7 +125,7 @@ class SavedVideosRoute extends Component {
         }}
       </DisplayContext.Consumer>
     )
-  }
+
 
   render() {
     return (
@@ -156,7 +152,7 @@ class SavedVideosRoute extends Component {
                         <ImageElement
                           src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
                           alt="nxt watch logo"
-                        ></ImageElement>
+                        />
                         <CancelButton
                           type="button"
                           data-testid="close"
