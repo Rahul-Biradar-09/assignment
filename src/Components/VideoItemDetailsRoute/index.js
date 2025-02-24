@@ -72,7 +72,7 @@ class VideoItemDetailsRoute extends Component {
     videoItemDetails: [],
     isLiked: false,
     isDisliked: false,
-    isSaved: false,
+    //isSaved: false,
   }
 
   componentDidMount() {
@@ -149,12 +149,14 @@ class VideoItemDetailsRoute extends Component {
   }
 
   onSaveEvent = () => {
-    /*this.setState(prevState => ({videoItemDetails: prevState.videoItemDetails.map(eachItem => {
-      if (id === eachItem.id){
-        return {...eachItem, isSaved: !eachItem.isSaved}
-      }
-      return eachItem
-    })})) */
+    /*this.setState(prevState => ({
+      videoItemDetails: prevState.videoItemDetails.map(eachItem => {
+        if (id === eachItem.id) {
+          return {...eachItem, isSaved: !eachItem.isSaved}
+        }
+        return eachItem
+      }),
+    }))*/
     // I tried to update the key of the videoItem but got error called :- (videosItemDetails.map not a function)
     this.setState(prevState => ({isSaved: !prevState.isSaved}))
   }

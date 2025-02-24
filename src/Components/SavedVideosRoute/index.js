@@ -58,74 +58,72 @@ class SavedVideosRoute extends Component {
   }
 
   onCallLoadingView = () => (
-      <VideosSavedContainer outline>
-        <div className="loader-container" data-testid="loader">
-          <Loader type="ThreeDots" color="#616e7c" height="50" width="50" />
-        </div>
-      </VideosSavedContainer>
-    )
+    <VideosSavedContainer outline>
+      <div className="loader-container" data-testid="loader">
+        <Loader type="ThreeDots" color="#616e7c" height="50" width="50" />
+      </div>
+    </VideosSavedContainer>
+  )
 
   onCallSuccessView = () => (
-      <DisplayContext.Consumer>
-        {value => {
-          const {backgroundColor, videoItems} = value
-          return (
-            <VideosSavedContainer>
-              {videoItems.map(eachItem => (
-                <Link to={`/videos/${eachItem.id}`}>
-                  <VideoSavedItems key={eachItem.id}>
-                    <ThumbnailImage
-                      src={eachItem.thumbnailUrl}
-                      alt="video thumbnail"
-                    />
-                    <VideoTextContainer>
-                      <VideoHead bgColor={backgroundColor}>
-                        {eachItem.title}
-                      </VideoHead>
-                      <VideoPara>{eachItem.channel.name}</VideoPara>
-                      <ViewContainer>
-                        <VideoPara>
-                          {eachItem.viewCount} views<Dot>.</Dot>
-                        </VideoPara>
-                        <VideoPara>
-                          {formatDistanceToNow(new Date(eachItem.publishedAt))}{' '}
-                          ago
-                        </VideoPara>
-                      </ViewContainer>
-                    </VideoTextContainer>
-                  </VideoSavedItems>
-                </Link>
-              ))}
-            </VideosSavedContainer>
-          )
-        }}
-      </DisplayContext.Consumer>
-    )
-
+    <DisplayContext.Consumer>
+      {value => {
+        const {backgroundColor, videoItems} = value
+        return (
+          <VideosSavedContainer>
+            {videoItems.map(eachItem => (
+              <Link to={`/videos/${eachItem.id}`}>
+                <VideoSavedItems key={eachItem.id}>
+                  <ThumbnailImage
+                    src={eachItem.thumbnailUrl}
+                    alt="video thumbnail"
+                  />
+                  <VideoTextContainer>
+                    <VideoHead bgColor={backgroundColor}>
+                      {eachItem.title}
+                    </VideoHead>
+                    <VideoPara>{eachItem.channel.name}</VideoPara>
+                    <ViewContainer>
+                      <VideoPara>
+                        {eachItem.viewCount} views<Dot>.</Dot>
+                      </VideoPara>
+                      <VideoPara>
+                        {formatDistanceToNow(new Date(eachItem.publishedAt))}{' '}
+                        ago
+                      </VideoPara>
+                    </ViewContainer>
+                  </VideoTextContainer>
+                </VideoSavedItems>
+              </Link>
+            ))}
+          </VideosSavedContainer>
+        )
+      }}
+    </DisplayContext.Consumer>
+  )
 
   onCallFailureView = () => (
-      <DisplayContext.Consumer>
-        {value => {
-          const {backgroundColor} = value
+    <DisplayContext.Consumer>
+      {value => {
+        const {backgroundColor} = value
 
-          return (
-            <VideosSavedContainer outline>
-              <FailureImageElement
-                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png"
-                alt="no saved videos"
-              />
-              <FailureHead bgColor={backgroundColor}>
-                No saved videos found
-              </FailureHead>
-              <FailurePara>
-                You can save your videos while watching them
-              </FailurePara>
-            </VideosSavedContainer>
-          )
-        }}
-      </DisplayContext.Consumer>
-    )
-
+        return (
+          <VideosSavedContainer outline>
+            <FailureImageElement
+              src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png"
+              alt="no saved videos"
+            />
+            <FailureHead bgColor={backgroundColor}>
+              No saved videos found
+            </FailureHead>
+            <FailurePara>
+              You can save your videos while watching them
+            </FailurePara>
+          </VideosSavedContainer>
+        )
+      }}
+    </DisplayContext.Consumer>
+  )
 
   render() {
     return (

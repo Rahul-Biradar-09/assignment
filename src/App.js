@@ -53,22 +53,22 @@ class App extends Component {
         }}
       >
         <Switch>
-          <Route exact path='/login' component={LoginRoute} />
-          <ProtectedRoute exact path='/' component={HomeRoute} />
-          <ProtectedRoute exact path='/trending' component={TrendingRoute} />
-          <ProtectedRoute exact path='/gaming' component={GamingRoute} />
+          <Route exact path="/login" component={LoginRoute} />
+          <ProtectedRoute exact path="/" component={HomeRoute} />
+          <ProtectedRoute exact path="/trending" component={TrendingRoute} />
+          <ProtectedRoute exact path="/gaming" component={GamingRoute} />
           <ProtectedRoute
             exact
-            path='/saved-videos'
+            path="/saved-videos"
             component={SavedVidoesRoute}
           />
           <ProtectedRoute
             exact
-            path='/videos/:id'
+            path="/videos/:id"
             component={VideoItemDetailsRoute}
           />
-          <Route path='/not-found' component={NotFoundRoute} />
-          <Redirect to='not-found' />
+          <Route path="/not-found" component={NotFoundRoute} />
+          <Redirect to="not-found" />
         </Switch>
       </DisplayContext.Provider>
     )

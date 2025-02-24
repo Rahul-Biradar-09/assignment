@@ -105,12 +105,12 @@ class TrendingRoute extends Component {
   }
 
   onCallLoadingView = () => (
-      <VideosTrendingContainer outline>
-        <div className="loader-container" data-testid="loader">
-          <Loader type="ThreeDots" color="#616e7c" height="50" width="50" />
-        </div>
-      </VideosTrendingContainer>
-    )
+    <VideosTrendingContainer outline>
+      <div className="loader-container" data-testid="loader">
+        <Loader type="ThreeDots" color="#616e7c" height="50" width="50" />
+      </div>
+    </VideosTrendingContainer>
+  )
 
   onCallSuccessView = () => {
     const {trendingList} = this.state
@@ -152,36 +152,35 @@ class TrendingRoute extends Component {
     )
   }
 
-  onCallFailureView = () =>  (
-      <DisplayContext.Consumer>
-        {value => {
-          const {backgroundColor} = value
-          return (
-            <VideosTrendingContainer outline>
-              <FailureImageElement
-                src={
-                  backgroundColor
-                    ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
-                    : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
-                }
-                alt="failure view"
-              />
-              <FailureHead bgColor={backgroundColor}>
-                Oops! Something Went Wrong
-              </FailureHead>
-              <FailurePara>
-                We are having some trouble to complete your request. Please try
-                again.
-              </FailurePara>
-              <FailureButton type="button" onClick={this.onRetryButtonEvent}>
-                Retry
-              </FailureButton>
-            </VideosTrendingContainer>
-          )
-        }}
-      </DisplayContext.Consumer>
-    )
-  
+  onCallFailureView = () => (
+    <DisplayContext.Consumer>
+      {value => {
+        const {backgroundColor} = value
+        return (
+          <VideosTrendingContainer outline>
+            <FailureImageElement
+              src={
+                backgroundColor
+                  ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
+                  : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
+              }
+              alt="failure view"
+            />
+            <FailureHead bgColor={backgroundColor}>
+              Oops! Something Went Wrong
+            </FailureHead>
+            <FailurePara>
+              We are having some trouble to complete your request. Please try
+              again.
+            </FailurePara>
+            <FailureButton type="button" onClick={this.onRetryButtonEvent}>
+              Retry
+            </FailureButton>
+          </VideosTrendingContainer>
+        )
+      }}
+    </DisplayContext.Consumer>
+  )
 
   apiContantsEvents = () => {
     const {apiStatus} = this.state

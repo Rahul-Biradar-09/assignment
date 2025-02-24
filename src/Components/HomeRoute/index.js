@@ -110,13 +110,12 @@ class HomeRoute extends Component {
   }
 
   onCallLoadingView = () => (
-      <VideosContainer outline>
-        <div className="loader-container" data-testid="loader">
-          <Loader type="ThreeDots" color="#616e7c" height="50" width="50" />
-        </div>
-      </VideosContainer>
-    )
-
+    <VideosContainer outline>
+      <div className="loader-container" data-testid="loader">
+        <Loader type="ThreeDots" color="#616e7c" height="50" width="50" />
+      </div>
+    </VideosContainer>
+  )
 
   onCallSuccessView = () => {
     const {videosList} = this.state
@@ -124,7 +123,6 @@ class HomeRoute extends Component {
     if (videosList.length !== 0) {
       displayVideosItem = true
     }
-
     return (
       <DisplayContext.Consumer>
         {value => {
@@ -199,34 +197,34 @@ class HomeRoute extends Component {
   }
 
   onCallFailureView = () => (
-      <DisplayContext.Consumer>
-        {value => {
-          const {backgroundColor} = value
-          return (
-            <VideosContainer outline>
-              <FailureImageElement
-                src={
-                  backgroundColor
-                    ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
-                    : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
-                }
-                alt="failure view"
-              />
-              <FailureHead bgColor={backgroundColor}>
-                Oops! Something Went Wrong
-              </FailureHead>
-              <FailurePara>
-                We are having some trouble to complete your request. Please try
-                again.
-              </FailurePara>
-              <FailureButton type="button" onClick={this.onRetryButtonEvent}>
-                Retry
-              </FailureButton>
-            </VideosContainer>
-          )
-        }}
-      </DisplayContext.Consumer>
-    )
+    <DisplayContext.Consumer>
+      {value => {
+        const {backgroundColor} = value
+        return (
+          <VideosContainer outline>
+            <FailureImageElement
+              src={
+                backgroundColor
+                  ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
+                  : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
+              }
+              alt="failure view"
+            />
+            <FailureHead bgColor={backgroundColor}>
+              Oops! Something Went Wrong
+            </FailureHead>
+            <FailurePara>
+              We are having some trouble to complete your request. Please try
+              again.
+            </FailurePara>
+            <FailureButton type="button" onClick={this.onRetryButtonEvent}>
+              Retry
+            </FailureButton>
+          </VideosContainer>
+        )
+      }}
+    </DisplayContext.Consumer>
+  )
 
   onsearchEventListener = event => {
     this.setState({searchItem: event.target.value})

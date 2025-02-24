@@ -101,6 +101,7 @@ justify-content: space-between;
 align-items: center;
 margin-top: 12px;
 margin-bottom: 8px;
+list-style-type: none;
 `
 
 export const ImageElement = styled.img`
