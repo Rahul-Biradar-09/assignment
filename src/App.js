@@ -34,9 +34,16 @@ class App extends Component {
   }
 
   addItems = details => {
+    const {videoItems} = this.state
+    const item = videoItems.filter(eachItem => eachItem.id === details.id)
+    if (item.length === 0) {
     this.setState(prevState => ({
       videoItems: [...prevState.videoItems, details],
     }))
+    }else{
+      const updatedArray = videoItems.filter(eachItem => eachItem.id !== details.id)
+      this.setState(prevState => ({videoItems: [...prevState.videoItems, updatedArray]}))
+    }
   }
 
   render() {
