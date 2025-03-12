@@ -80,7 +80,7 @@ class VideoItemDetailsRoute extends Component {
   }
 
   fetchVideoDetailsItemApi = async () => {
-    const jwtToken = Cookies.get('jwtToken')
+    const jwtToken = Cookies.get('jwt_token')
     const {match} = this.props
     const {params} = match
     const {id} = params

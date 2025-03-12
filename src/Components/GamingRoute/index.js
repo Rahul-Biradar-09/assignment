@@ -58,7 +58,7 @@ class GamingRoute extends Component {
   }
 
   fetchGamingVideosApi = async () => {
-    const jwtToken = Cookies.get('jwtToken')
+    const jwtToken = Cookies.get('jwt_token')
     const options = {
       method: 'GET',
       headers: {

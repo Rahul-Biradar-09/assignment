@@ -24,7 +24,7 @@ class LoginRoute extends Component {
   state = {username: '', password: '', showPassword: false, errorMsg: ''}
 
   saveJwtToken = jwtToken => {
-    Cookies.set('jwtToken', jwtToken, {expires: 1})
+    Cookies.set('jwt_token', jwtToken, {expires: 1})
     const {history} = this.props
     history.replace('/')
   }
@@ -65,7 +65,7 @@ class LoginRoute extends Component {
 
   render() {
     const {username, password, showPassword, errorMsg} = this.state
-    const jwtToken = Cookies.get('jwtToken')
+    const jwtToken = Cookies.get('jwt_token')
     if (jwtToken !== undefined) {
       return <Redirect to="/" />
     }

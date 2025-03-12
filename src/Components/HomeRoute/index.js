@@ -69,7 +69,7 @@ class HomeRoute extends Component {
 
   fetchVideosApi = async () => {
     const {searchItem} = this.state
-    const jwtToken = Cookies.get('jwtToken')
+    const jwtToken = Cookies.get('jwt_token')
     const options = {
       method: 'GET',
       headers: {
@@ -158,9 +158,8 @@ class HomeRoute extends Component {
                               <VideoPara>
                                 {formatDistanceToNow(
                                   new Date(eachItem.publishedAt),
-                                )}{' '}
-                                ago
-                              </VideoPara>
+                                )}{' '} ago
+                              </VideoPara>                             
                             </ViewContainer>
                           </VideoTextContainer>
                         </VideoBottomContainer>

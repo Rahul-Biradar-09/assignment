@@ -28,7 +28,7 @@ import {
 const HeaderRoute = props => {
   const onlogoutButton = () => {
     const {history} = props
-    Cookies.remove('jwtToken')
+    Cookies.remove('jwt_token')
     history.replace('/login')
   }
 
