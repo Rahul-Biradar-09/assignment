@@ -42,7 +42,7 @@ class App extends Component {
     }))
     }else{
       const updatedArray = videoItems.filter(eachItem => eachItem.id !== details.id)
-      this.setState(prevState => ({videoItems: [...prevState.videoItems, updatedArray]}))
+      this.setState({ videoItems: updatedArray })
     }
   }
 
